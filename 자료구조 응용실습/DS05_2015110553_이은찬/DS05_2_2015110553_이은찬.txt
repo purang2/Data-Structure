@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+#define MAX_TERMS 1001
+typedef struct {
+	int expon;
+	int coef;
+}polynomial;
+polynomial terms[MAX_TERMS];
+
+void main() {
+
+	int n1, n2, sum;
+	int i;
+	int *arr;
+	int minExpo = 1002;
+	int maxExpo = 0;
+	int flag[1001] = { 0 };
+	FILE *fp = NULL;
+	FILE *fp2 = NULL;
+	fopen_s(&fp, "a.txt", "r");
+	fscanf_s(fp, "%d", &n1);
+	for (i = 0;i < n1;i++) {
+		fscanf_s(fp, "%d", &terms[i].coef);
+		fscanf_s(fp, "%d", &terms[i].expon);
+		if (minExpo > terms[i].expon) minExpo = terms[i].expon;
+		if (maxExpo < terms[i].expon) maxExpo = terms[i].expon;
+	}
+	
+	fopen_s(&fp2, "b.txt", "r");
+	fscanf_s(fp2, "%d", &n2);
+	sum = n1 + n2;
+	for (i = n1;i < sum;i++) {
+		fscanf_s(fp2, "%d", &terms[i].coef);
+		fscanf_s(fp2, "%d", &terms[i].expon);
+		if (minExpo > terms[i].expon) minExpo = terms[i].expon;
+		if (maxExpo < terms[i].expon) maxExpo = terms[i].expon;
+	}
+	
+	arr = calloc(sum, sizeof(int));
+
+	for (i = 0;i < sum;i++) {
+		if(flag[terms[i].expon]==0)arr[terms[i].expon] = terms[i].coef;
+		flag[terms[i].expon] = -1;
+		if (flag[terms[i].expon] == 0)arr[terms[i].expon] += terms[i].coef;
+	}
+
+	for (i = MAX_TERMS;i >= 0;--i) {
+		if (flag[i]==-1) {
+			if (i == 0) printf("%d", arr[i]);
+
+			else printf("%dx^%d", arr[i], i);
+			
+			if (i != minExpo) printf(" + ");
+		}
+	}
+	
+	
+}

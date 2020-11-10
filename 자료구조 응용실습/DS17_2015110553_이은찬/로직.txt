@@ -1,0 +1,48 @@
+	//WINNER TREE ·ÎÁ÷
+	/*
+	cnt = n;
+	for (i = 0; i < n; i += 2) {
+		if (tree[i]->data > tree[i + 1]->data) {
+			tree[cnt]->data = tree[i + 1]->data;
+			tree[cnt]->left = tree[i];
+			tree[cnt]->right = tree[i + 1];
+			cnt++;
+		}
+		else {
+			tree[cnt]->data = tree[i]->data;
+			tree[cnt]->left = tree[i];
+			tree[cnt]->right = tree[i + 1];
+			cnt++;
+		}
+	}
+	
+	for(i=n;i<n+(n/2);i+=2) {
+		if (tree[i]->data > tree[i + 1]->data) {
+			tree[cnt]->data = tree[i + 1]->data;
+			tree[cnt]->left = tree[i];
+			tree[cnt]->right = tree[i + 1];
+			cnt++;
+		}
+		else {
+			tree[cnt]->data = tree[i]->data;
+			tree[cnt]->left = tree[i];
+			tree[cnt]->right = tree[i + 1];
+			cnt++;
+		}
+	}
+
+	for (i = n + (n / 2); i < 2 * n - 2; i += 2) {
+		if (tree[i]->data > tree[i + 1]->data) {
+			tree[cnt]->data = tree[i + 1]->data;
+			tree[cnt]->left = tree[i];
+			tree[cnt]->right = tree[i + 1];
+			cnt++;
+		}
+		else {
+			tree[cnt]->data = tree[i]->data;
+			tree[cnt]->left = tree[i];
+			tree[cnt]->right = tree[i + 1];
+			cnt++;
+		}
+	}
+	*/

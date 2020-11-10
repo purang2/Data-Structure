@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_DEGREE 1001
+
+typedef struct {
+	int degree;
+	float coef[MAX_DEGREE];
+} polynomial;
+
+
+void main() {
+	int i,v,n1,n2; 
+	int *arr1;
+	int *arr2;
+	FILE *fp, *fp2;
+	malloc(arr1, sizeof(int));
+	malloc(arr2, sizeof(int));
+  polynomial arr;
+	fopen_s(&fp,"a.txt", "w");
+	v= 0;
+	
+	while(fscanf(fp,"%d",&i)!=EOF){
+		arr1[v++] = i;
+	}
+	fclose(fp);
+	
+	fopen_s(&fp2, "b.txt", "w");
+	v = 0;
+	while (fscanf(fp2, "%d", &i) != EOF) {
+		arr2[v++] = i;
+	}
+	fclose(fp2);
+	
+	n1 = arr1[0];
+	n2 = arr2[0];
+	
+
+	for (i = 0; i < n1; i++) {
+		arr.degree = arr1[i];
+		arr.coef[i]= arr2[i];
+
+	}
+ 
+	free(arr1);
+	free(arr2);
+}
